@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-  <img alt="Skills" src="https://img.shields.io/badge/skills-10-8b5cf6">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-17-8b5cf6">
   <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <img alt="Plain markdown" src="https://img.shields.io/badge/memory-plain%20markdown-22c55e">
   <a href="https://github.com/iamgroot400/research-skill/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/iamgroot400/research-skill?style=social"></a>
@@ -16,6 +16,7 @@
   <a href="#install">Install</a> ·
   <a href="#the-lab">The lab</a> ·
   <a href="#two-research-modes">Modes</a> ·
+  <a href="#co-scientist-loop">Co-scientist loop</a> ·
   <a href="#quick-start">Quick start</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#contributing">Contributing</a>
@@ -55,6 +56,13 @@ Most AI coding setups are tuned for **shipping products**: defensive code, exhau
 | 🗂️ **`lab-ops`** | Deadlines, checklists, travel, paperwork | *"Submission checklist for …"* · *"Draft a visa letter"* |
 | 📣 **`lab-comms`** | Announcements, newsletters, talks, venues | *"Announcement thread for the paper"* · *"Where can I present this?"* |
 | 📐 **`research-code`** | House coding style, applied by every role that writes code | runs automatically |
+| 🗺️ **`research-plan`** | Supervisor: turns a goal into success criteria, pipeline and budget | *"Plan this goal"* |
+| 🏆 **`hypothesis-tournament`** | Generate, critique, dedupe, rank (Elo) and evolve hypotheses | *"Find the best hypothesis for …"* |
+| 🧐 **`reflect`** | Reviews one idea for novelty, plausibility and testability | *"Has this been done?"* · *"Poke holes in this"* |
+| 🧬 **`evolve`** | Repairs, simplifies, combines or reframes a strong idea | *"Make this stronger"* |
+| 📋 **`experiment-protocol`** | Controls, power, analysis plan and pre-committed decision rules | *"Write the protocol for H1"* |
+| 📚 **`literature-review`** | Claim-to-source table; only cites papers it actually opened | *"What is known about X?"* |
+| 🔁 **`meta-review`** | Finds recurring problems across the notebook, feeds back to roles | *"What keeps going wrong?"* |
 
 ## Two research modes
 
@@ -65,6 +73,16 @@ You declare the mode **once**, during `lab-setup`. It is saved in `lab/charter.m
 </p>
 
 Switching modes is a logged decision in `lab/decisions.md`, so a project can start in synthesis (map the field) and move to discovery (attack the gap).
+
+## Co-scientist loop
+
+The newer skills follow the generate, debate and evolve design that Google Research described in its [AI co-scientist](https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/) post. A supervisor plans, candidate hypotheses are generated, critiqued, de-duplicated and ranked in pairwise debates, and the best are evolved and re-ranked. The ranking uses Elo ratings, computed by a small script ([`elo.py`](skills/hypothesis-tournament/elo.py)) instead of by the model.
+
+<p align="center">
+  <img src="assets/coscientist-loop.svg" alt="Generate, reflect, rank and evolve hypotheses, then protocol, run, QA and meta-review" width="90%">
+</p>
+
+> **Independent project.** This is an open-source reimplementation of the idea as prompts and files, inspired by that post. It is not Google's system, it is not affiliated with Google, and it does not use Gemini. Elo here measures a model's preference among generated ideas, **not truth**, so only experiments settle a hypothesis.
 
 ## See it in action
 
@@ -165,6 +183,8 @@ research-skill/
 │   ├── lab-setup/      scaffold + templates
 │   ├── pi/  grad-student/  intern/  lab-engineer/
 │   ├── qa-check/  lab-debate/  lab-ops/  lab-comms/
+│   ├── research-plan/  hypothesis-tournament/  reflect/  evolve/
+│   ├── experiment-protocol/  literature-review/  meta-review/
 │   └── research-code/
 └── assets/             README images
 ```

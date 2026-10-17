@@ -1,0 +1,44 @@
+<svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Generate, reflect, rank and evolve hypotheses, then protocol, run, QA and meta-review">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="900" height="440" rx="18" fill="#0f172a"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle" font-size="14" fill="#f1f5f9">
+    <!-- row 1 -->
+    <rect x="30" y="50" width="170" height="44" rx="10" fill="#1e293b" stroke="#64748b"/><text x="115" y="77">your goal</text>
+    <rect x="265" y="50" width="170" height="44" rx="10" fill="#1e293b" stroke="#38bdf8"/><text x="350" y="77" font-family="Consolas, monospace">research-plan</text>
+    <rect x="500" y="50" width="170" height="44" rx="10" fill="#1e293b" stroke="#38bdf8"/><text x="585" y="77" font-family="Consolas, monospace">literature-review</text>
+    <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a)">
+      <path d="M200 72H263"/><path d="M435 72H498"/><path d="M585 94V128"/>
+    </g>
+    <!-- tournament -->
+    <rect x="30" y="130" width="840" height="130" rx="14" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="7 6"/>
+    <text x="48" y="154" text-anchor="start" font-size="13" font-weight="700" fill="#c4b5fd" font-family="Consolas, monospace">hypothesis-tournament</text>
+    <g font-family="Consolas, monospace">
+      <rect x="48" y="182" width="130" height="44" rx="10" fill="#1e293b" stroke="#a78bfa"/><text x="113" y="209">generate</text>
+      <rect x="213" y="182" width="130" height="44" rx="10" fill="#1e293b" stroke="#a78bfa"/><text x="278" y="209">reflect</text>
+      <rect x="378" y="182" width="130" height="44" rx="10" fill="#1e293b" stroke="#a78bfa"/><text x="443" y="209">dedupe</text>
+      <rect x="543" y="182" width="130" height="44" rx="10" fill="#1e293b" stroke="#a78bfa"/><text x="608" y="209">rank (Elo)</text>
+      <rect x="708" y="182" width="130" height="44" rx="10" fill="#1e293b" stroke="#a78bfa"/><text x="773" y="209">evolve</text>
+    </g>
+    <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a)">
+      <path d="M178 204H211"/><path d="M343 204H376"/><path d="M508 204H541"/><path d="M673 204H706"/>
+      <path d="M773 226V248H278V228" stroke-dasharray="5 4"/>
+    </g>
+    <text x="525" y="244" font-size="12" fill="#94a3b8">repeat until the budget or stop rule in plan.md</text>
+    <!-- row 3 -->
+    <g font-family="Consolas, monospace" font-size="13">
+      <rect x="30" y="320" width="150" height="44" rx="10" fill="#1e293b" stroke="#4ade80"/><text x="105" y="347" font-family="Segoe UI, Arial, sans-serif" font-size="14">you pick</text>
+      <rect x="205" y="320" width="150" height="44" rx="10" fill="#1e293b" stroke="#38bdf8"/><text x="280" y="347">experiment-protocol</text>
+      <rect x="380" y="320" width="150" height="44" rx="10" fill="#1e293b" stroke="#38bdf8"/><text x="455" y="347">grad-student</text>
+      <rect x="555" y="320" width="150" height="44" rx="10" fill="#1e293b" stroke="#38bdf8"/><text x="630" y="347">qa-check</text>
+      <rect x="730" y="320" width="140" height="44" rx="10" fill="#1e293b" stroke="#38bdf8"/><text x="800" y="347">meta-review</text>
+    </g>
+    <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#a)">
+      <path d="M105 260V318"/><path d="M180 342H203"/><path d="M355 342H378"/><path d="M530 342H553"/><path d="M705 342H728"/>
+    </g>
+    <text x="450" y="406" font-size="13" fill="#94a3b8">The human decides at every arrow out of the dashed box. Meta-review feeds lessons back to every role.</text>
+  </g>
+</svg>
