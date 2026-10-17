@@ -1,0 +1,39 @@
+<svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Research Skill: an agents research lab for Claude">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="20" fill="url(#bg)"/>
+  <g opacity="0.12" stroke="#94a3b8" stroke-width="1">
+    <path d="M0 80H1200M0 160H1200M0 240H1200M200 0V320M400 0V320M600 0V320M800 0V320M1000 0V320"/>
+  </g>
+  <!-- flask -->
+  <g transform="translate(110 70)" fill="none" stroke="url(#accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 0H80M50 0V60L6 140Q-6 165 20 165H100Q126 165 114 140L70 60V0"/>
+    <path d="M22 118H98" stroke-width="5"/>
+  </g>
+  <circle cx="160" cy="150" r="5" fill="#38bdf8"/>
+  <circle cx="182" cy="132" r="3.5" fill="#a78bfa"/>
+  <circle cx="170" cy="114" r="3" fill="#38bdf8"/>
+  <text x="290" y="132" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="68" font-weight="800" fill="#f8fafc">Research Skill</text>
+  <text x="292" y="180" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" fill="url(#accent)">An agents research lab for Claude</text>
+  <text x="292" y="218" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#94a3b8">Explicit assumptions · recorded disagreement · theory, code and results kept in sync</text>
+  <g font-family="Consolas, Menlo, monospace" font-size="15" fill="#e2e8f0">
+    <g transform="translate(292 244)">
+      <rect width="46" height="30" rx="15" fill="#334155"/><text x="23" y="20" text-anchor="middle">pi</text>
+      <rect x="54" width="116" height="30" rx="15" fill="#334155"/><text x="112" y="20" text-anchor="middle">grad-student</text>
+      <rect x="178" width="68" height="30" rx="15" fill="#334155"/><text x="212" y="20" text-anchor="middle">intern</text>
+      <rect x="254" width="110" height="30" rx="15" fill="#334155"/><text x="309" y="20" text-anchor="middle">lab-engineer</text>
+      <rect x="372" width="84" height="30" rx="15" fill="#334155"/><text x="414" y="20" text-anchor="middle">qa-check</text>
+      <rect x="464" width="96" height="30" rx="15" fill="#334155"/><text x="512" y="20" text-anchor="middle">lab-debate</text>
+      <rect x="568" width="76" height="30" rx="15" fill="#334155"/><text x="606" y="20" text-anchor="middle">lab-ops</text>
+      <rect x="652" width="92" height="30" rx="15" fill="#334155"/><text x="698" y="20" text-anchor="middle">lab-comms</text>
+    </g>
+  </g>
+</svg>

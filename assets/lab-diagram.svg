@@ -1,0 +1,28 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Every role reads and writes one shared lab notebook">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="500" rx="18" fill="#0f172a"/>
+  <g stroke="#475569" stroke-width="2" stroke-dasharray="5 5" fill="none">
+    <path d="M450 250L450 70M450 250L662 120M450 250L750 250M450 250L662 380M450 250L450 430M450 250L238 380M450 250L150 250M450 250L238 120"/>
+  </g>
+  <!-- centre -->
+  <rect x="340" y="190" width="220" height="120" rx="16" fill="url(#g)"/>
+  <text x="450" y="236" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="24" font-weight="700" fill="#fff">lab/</text>
+  <text x="450" y="262" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#e0f2fe">shared notebook</text>
+  <text x="450" y="284" text-anchor="middle" font-family="Consolas, Menlo, monospace" font-size="13" fill="#e0f2fe">H · A · E · D</text>
+  <!-- nodes -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(450 70)"><rect x="-80" y="-26" width="160" height="52" rx="12" fill="#1e293b" stroke="#38bdf8"/><text y="-3" font-size="16" font-weight="700" fill="#f1f5f9">pi</text><text y="16" font-size="12" fill="#94a3b8">direction &amp; briefings</text></g>
+    <g transform="translate(662 120)"><rect x="-80" y="-26" width="160" height="52" rx="12" fill="#1e293b" stroke="#38bdf8"/><text y="-3" font-size="16" font-weight="700" fill="#f1f5f9">grad-student</text><text y="16" font-size="12" fill="#94a3b8">ideas, POCs, drafts</text></g>
+    <g transform="translate(750 250)"><rect x="-80" y="-26" width="160" height="52" rx="12" fill="#1e293b" stroke="#38bdf8"/><text y="-3" font-size="16" font-weight="700" fill="#f1f5f9">intern</text><text y="16" font-size="12" fill="#94a3b8">data prep &amp; EDA</text></g>
+    <g transform="translate(662 380)"><rect x="-80" y="-26" width="160" height="52" rx="12" fill="#1e293b" stroke="#38bdf8"/><text y="-3" font-size="16" font-weight="700" fill="#f1f5f9">lab-engineer</text><text y="16" font-size="12" fill="#94a3b8">review &amp; release</text></g>
+    <g transform="translate(450 430)"><rect x="-80" y="-26" width="160" height="52" rx="12" fill="#1e293b" stroke="#a78bfa"/><text y="-3" font-size="16" font-weight="700" fill="#f1f5f9">qa-check</text><text y="16" font-size="12" fill="#94a3b8">fact-checking</text></g>
+    <g transform="translate(238 380)"><rect x="-80" y="-26" width="160" height="52" rx="12" fill="#1e293b" stroke="#a78bfa"/><text y="-3" font-size="16" font-weight="700" fill="#f1f5f9">lab-debate</text><text y="16" font-size="12" fill="#94a3b8">red-team &amp; dissent</text></g>
+    <g transform="translate(150 250)"><rect x="-80" y="-26" width="160" height="52" rx="12" fill="#1e293b" stroke="#a78bfa"/><text y="-3" font-size="16" font-weight="700" fill="#f1f5f9">lab-ops</text><text y="16" font-size="12" fill="#94a3b8">deadlines &amp; logistics</text></g>
+    <g transform="translate(238 120)"><rect x="-80" y="-26" width="160" height="52" rx="12" fill="#1e293b" stroke="#a78bfa"/><text y="-3" font-size="16" font-weight="700" fill="#f1f5f9">lab-comms</text><text y="16" font-size="12" fill="#94a3b8">announcements</text></g>
+  </g>
+</svg>

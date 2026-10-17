@@ -1,0 +1,33 @@
+<svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Synthesis mode versus discovery mode">
+  <rect width="900" height="360" rx="18" fill="#0f172a"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <!-- synthesis -->
+    <rect x="24" y="24" width="414" height="312" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="48" y="64" font-size="26" font-weight="800" fill="#38bdf8">Synthesis mode</text>
+    <text x="48" y="90" font-size="14" fill="#94a3b8">Literature reviews · know what is already known</text>
+    <g font-size="15" fill="#e2e8f0">
+      <text x="48" y="130" font-weight="700" fill="#7dd3fc">qa-check</text>
+      <text x="48" y="152">Hallucination police. Every claim tied</text>
+      <text x="48" y="172">to a verified source. No invented science.</text>
+      <text x="48" y="210" font-weight="700" fill="#7dd3fc">grad-student</text>
+      <text x="48" y="232">Finds gaps in the literature, writes</text>
+      <text x="48" y="252">cited reviews.</text>
+      <text x="48" y="290" font-weight="700" fill="#7dd3fc">lab-engineer</text>
+      <text x="48" y="312">Support tooling only.</text>
+    </g>
+    <!-- discovery -->
+    <rect x="462" y="24" width="414" height="312" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="486" y="64" font-size="26" font-weight="800" fill="#a78bfa">Discovery mode</text>
+    <text x="486" y="90" font-size="14" fill="#94a3b8">Novel research · unsolved problems</text>
+    <g font-size="15" fill="#e2e8f0">
+      <text x="486" y="130" font-weight="700" fill="#c4b5fd">qa-check</text>
+      <text x="486" y="152">Alignment police. Equations match code,</text>
+      <text x="486" y="172">A/E tags stay in sync, assumptions challenged.</text>
+      <text x="486" y="210" font-weight="700" fill="#c4b5fd">grad-student</text>
+      <text x="486" y="232">Proposes hypotheses, designs and runs</text>
+      <text x="486" y="252">falsifiable experiments.</text>
+      <text x="486" y="290" font-weight="700" fill="#c4b5fd">lab-engineer</text>
+      <text x="486" y="312">Fully active: POC to reproducible release.</text>
+    </g>
+  </g>
+</svg>

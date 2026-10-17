@@ -1,91 +1,186 @@
-# 🧪 Research Lab Skills
+<p align="center">
+  <img src="assets/banner.svg" alt="Research Skill: an agents research lab for Claude" width="100%">
+</p>
 
-**Turn Claude into a small research lab, not a product engineer.**
+<p align="center">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+  <img alt="Skills" src="https://img.shields.io/badge/skills-10-8b5cf6">
+  <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
+  <img alt="Plain markdown" src="https://img.shields.io/badge/memory-plain%20markdown-22c55e">
+  <a href="https://github.com/iamgroot400/research-skill/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/iamgroot400/research-skill?style=social"></a>
+</p>
 
-Most AI coding setups are tuned for shipping products: defensive code, edge cases, scale. Research needs something else: **readable code you can check against the paper, explicit assumptions, honest disagreement, and theory, code and results that stay aligned as ideas change.**
+<h3 align="center">Turn Claude into a small research lab, not a product engineer.</h3>
 
-This repo is a set of [Agent Skills](https://docs.claude.com/en/docs/claude-code/skills) that give Claude distinct lab roles. They share one plain-markdown **lab notebook** that lives in your project.
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#the-lab">The lab</a> ·
+  <a href="#two-research-modes">Modes</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#how-it-works">How it works</a> ·
+  <a href="#contributing">Contributing</a>
+</p>
+
+---
+
+## Why this exists
+
+Most AI coding setups are tuned for **shipping products**: defensive code, exhaustive edge cases, scale. Research is a different job. The setup has to be precise, but the code does not need to be production-grade. What matters is:
+
+| Research needs | Typical AI coding gives you |
+|---|---|
+| Code you can check against the paper | Long, convoluted implementations |
+| Assumptions written down and traceable | Assumptions buried in edge-case handling |
+| Agents that can **disagree** | An assistant that agrees with you |
+| Theory, code and results that stay aligned | Code that drifts from the idea |
+| Fast iteration | Heavy scaffolding up front |
+
+**Research Skill** gives Claude the roles of a real lab. They share one plain-markdown notebook, so context and intent survive between sessions and between roles.
 
 ## The lab
 
-| Skill | Role | Ask it things like |
-|-------|------|--------------------|
-| `lab-setup` | Opens the lab | "set up the lab for my project on X" |
-| `pi` | Lab head, your right hand | "daily briefing", "are we drifting?", "funding ideas" |
-| `grad-student` | Ideas, experiments, POCs, paper drafts | "propose directions", "design an experiment for H2", "draft the method section" |
-| `intern` | Data prep, EDA, scouting, side experiments | "clean this dataset", "quick EDA", "find datasets on ..." |
-| `lab-engineer` | Review, POC → reproducible release | "review this for bugs that change results", "prep the code release" |
-| `qa-check` | Theory ↔ code ↔ results ↔ references | "fact-check the draft before submission" |
-| `lab-debate` | Structured disagreement and red-teaming | "argue against using method X", "what would reviewer 2 say?" |
-| `lab-ops` | Deadlines, checklists, travel, paperwork | "NeurIPS submission checklist", "visa letter draft" |
-| `lab-comms` | Announcements, newsletter, talks, venues | "announcement thread for the paper", "where can I present this?" |
-| `research-code` | House coding style (runs automatically) | used by every role that writes code |
+<p align="center">
+  <img src="assets/lab-diagram.svg" alt="Every role reads and writes one shared lab notebook" width="90%">
+</p>
+
+| Skill | Role | Try asking |
+|-------|------|------------|
+| 🧰 **`lab-setup`** | Opens the lab | *"Set up the lab for my project on X"* |
+| 🧭 **`pi`** | Lab head and your right hand | *"Daily briefing"* · *"Are we drifting?"* · *"Funding ideas"* |
+| 🎓 **`grad-student`** | Ideas, experiments, POCs, paper drafts | *"Propose directions"* · *"Design an experiment for H2"* · *"Draft the method section"* |
+| 🧑‍💻 **`intern`** | Data prep, EDA, scouting, side experiments | *"Clean this dataset"* · *"Quick EDA"* · *"Find datasets on …"* |
+| 🛠️ **`lab-engineer`** | Code review, POC → reproducible release | *"Review this for bugs that change results"* · *"Prep the code release"* |
+| 🔍 **`qa-check`** | Theory ↔ code ↔ results ↔ references | *"Fact-check the draft before submission"* |
+| ⚖️ **`lab-debate`** | Structured disagreement and red-teaming | *"Argue against method X"* · *"What would reviewer 2 say?"* |
+| 🗂️ **`lab-ops`** | Deadlines, checklists, travel, paperwork | *"Submission checklist for …"* · *"Draft a visa letter"* |
+| 📣 **`lab-comms`** | Announcements, newsletters, talks, venues | *"Announcement thread for the paper"* · *"Where can I present this?"* |
+| 📐 **`research-code`** | House coding style, applied by every role that writes code | runs automatically |
 
 ## Two research modes
 
-You declare the mode once at `lab-setup`. It is stored in `lab/charter.md`, and every role adapts to it.
+You declare the mode **once**, during `lab-setup`. It is saved in `lab/charter.md`, and every role adapts to it.
 
-| | **Synthesis** | **Discovery** |
-|---|---|---|
-| Goal | Literature reviews, synthesizing existing knowledge | Novel research, unsolved problems, new hypotheses |
-| `qa-check` | Hallucination police: every claim tied to a verified source, no invented science | Alignment police: equations ↔ code, `A`/`E` tags, challenges untested assumptions |
-| `lab-engineer` | Support tooling only | Fully active: POCs → reproducible releases |
-| `grad-student` | Finds gaps in the literature, writes cited reviews | Proposes hypotheses, designs and runs experiments |
+<p align="center">
+  <img src="assets/modes.svg" alt="Synthesis mode versus discovery mode" width="90%">
+</p>
 
-Switching modes is a logged decision in `lab/decisions.md`.
+Switching modes is a logged decision in `lab/decisions.md`, so a project can start in synthesis (map the field) and move to discovery (attack the gap).
 
-## Core ideas
+## See it in action
 
-- **Shared memory, not shared chat.** Every role reads `lab/` before acting and appends to it after, so context survives across sessions and between roles.
-- **Assumptions are first-class.** Every modelling choice gets an ID (`A3`) in `lab/assumptions.md` and a `# ASSUME A3:` tag in the code. QA checks that the two stay in sync.
-- **Predictions before results.** Experiment cards record what would falsify a hypothesis *before* the code runs.
-- **Dissent is recorded.** Decisions keep their strongest unrefuted counterargument and a "revisit if" trigger.
-- **Research code ≠ production code.** Linear scripts, paper-shaped names, `assert` over `try/except`, no speculative abstraction.
-- **Agents draft, humans decide.** No role submits, posts, pays or edits the charter on its own.
+<p align="center">
+  <img src="assets/session.svg" alt="Illustrative example of a research lab session" width="90%">
+</p>
 
-```
-lab/
-  charter.md         question, hypotheses (H1..), scope - human-owned
-  assumptions.md     assumption register (A1..)
-  decisions.md       decision log with dissent (D1..)
-  deadlines.md       dated deadlines + internal milestones
-  experiments/E*.md  experiment cards (E1..)
-  notebook/DATE.md   daily log, every role appends
-  qa/  comms/  data/ reports from qa-check, lab-comms, intern
-results/E*/          experiment outputs, never overwritten
-```
+> The picture above is an illustrative mock-up of the flow, not a recording of a real run.
 
 ## Install
 
 ### Claude Code (plugin, recommended)
 
-```
+```text
 /plugin marketplace add iamgroot400/research-skill
 /plugin install research-lab@research-skill
 ```
 
 ### Claude Code (copy the skills)
 
-Copy the folders in `skills/` to `~/.claude/skills/` (all your projects) or `<project>/.claude/skills/` (one project).
+Copy the folders in [`skills/`](skills) to `~/.claude/skills/` (all projects) or `<project>/.claude/skills/` (one project).
 
-### Claude.ai / Claude desktop
+### Claude.ai and Claude desktop
 
-Zip each folder in `skills/` on its own (the zip should contain the folder with `SKILL.md` inside), then upload it under **Settings → Capabilities → Skills**.
+Zip each folder in `skills/` on its own, with the folder and its `SKILL.md` inside the zip, and upload it under **Settings → Capabilities → Skills**.
 
-## A typical day
+## Quick start
 
-1. `set up the lab` → answer 4 questions once.
-2. `PI, daily briefing` → status, concerns, top 3 tasks with an owner each.
-3. `grad-student: propose directions for H1` → ranked ideas, each with the cheapest experiment that could kill it.
-4. `red-team direction 2` → `lab-debate` argues it out and logs the decision and its dissent.
-5. `grad-student: design and POC E1` → prediction first, then minimal code tagged with assumptions.
-6. `lab-engineer: review E1` → bugs that would change results.
-7. Before submitting: `qa-check` → `lab-ops` checklist → `lab-comms` announcement pack.
+1. **Open the lab.** Say *"Set up the lab for my project on …"*. Pick a mode and answer a few questions once.
+2. **Get your bearings.** *"PI, daily briefing"* gives status, concerns and the top 3 tasks, each with an owner.
+3. **Explore.** *"grad-student: propose directions for H1"* returns ranked ideas, each with the cheapest experiment that could kill it.
+4. **Stress-test.** *"Red-team direction 2"* has `lab-debate` argue it out, then logs the decision and its dissent.
+5. **Build.** *"grad-student: design and POC E1"* writes the prediction first, then minimal code tagged with assumptions.
+6. **Check.** *"lab-engineer: review E1"* looks for bugs that change results.
+7. **Ship.** Before submitting: `qa-check` → `lab-ops` checklist → `lab-comms` announcement pack.
+
+## How it works
+
+### The lab notebook
+
+```text
+lab/
+├── charter.md          research mode, question, hypotheses (H1..), scope. Human-owned.
+├── assumptions.md      assumption register (A1..)
+├── decisions.md        decision log with recorded dissent (D1..)
+├── deadlines.md        dated deadlines and internal milestones
+├── experiments/        experiment cards (E1..), prediction written BEFORE running
+├── notebook/           daily log, every role appends
+└── qa/  comms/  data/  reports from qa-check, lab-comms and intern
+results/E*/             experiment outputs, never overwritten
+```
+
+### Core ideas
+
+- 🧠 **Shared memory, not shared chat.** Every role reads `lab/` before acting and appends to it after.
+- 🏷️ **Assumptions are first-class.** Each gets an ID (`A3`) in `assumptions.md` and a `# ASSUME A3:` tag in the code. `qa-check` verifies the two stay in sync.
+- 🔮 **Predictions before results.** An experiment card records what would falsify the hypothesis *before* any code runs. This blocks quietly rewriting the hypothesis after the fact.
+- 🗣️ **Dissent is recorded.** Decisions keep their strongest unrefuted counterargument and a "revisit if" trigger.
+- 📐 **Research code is not production code.** Linear scripts, paper-shaped names, `assert` over `try/except`, no speculative abstraction. The few cases where defensive code is allowed are spelled out in [`research-code`](skills/research-code/SKILL.md).
+- 🙋 **Agents draft, humans decide.** No role submits, posts, pays or edits the charter on its own.
+
+<details>
+<summary><b>Example: an assumption tag in code</b></summary>
+
+```python
+SEED = 0  # set every seed at the top; outputs go to results/E1/<timestamp>/
+
+# ASSUME A2: features are linearly decodable from layer activations
+probe = LogisticRegression(max_iter=1000).fit(train_x, train_y)
+
+assert train_x.shape[0] == train_y.shape[0]   # fail loud, not safe
+print(f"layer {layer}: acc={probe.score(test_x, test_y):.3f}")  # Eq. 4
+```
+
+</details>
+
+<details>
+<summary><b>Example: an experiment card</b></summary>
+
+```markdown
+# E1 - Cross-layer probe transfer
+- Status: planned
+- Tests hypothesis: H1
+- Prediction (written BEFORE running): If H1 holds, a probe trained on layer 6
+  keeps >80% of its accuracy on layer 8. Below 50% means H1 is in trouble.
+- Assumptions relied on: A2
+- Results: results/E1/
+```
+
+</details>
+
+## Repository layout
+
+```text
+research-skill/
+├── .claude-plugin/     plugin.json + marketplace.json
+├── skills/
+│   ├── lab-setup/      scaffold + templates
+│   ├── pi/  grad-student/  intern/  lab-engineer/
+│   ├── qa-check/  lab-debate/  lab-ops/  lab-comms/
+│   └── research-code/
+└── assets/             README images
+```
 
 ## Contributing
 
-PRs welcome, especially new roles (e.g. a statistician or ethics reviewer), field-specific variants (wet lab, social science, theory-only), and venue checklists. Keep each `SKILL.md` short: the `description` decides when the skill fires, and the body is read in full every time it runs.
+PRs are welcome, especially for:
+
+- new roles, such as a statistician or an ethics reviewer
+- field-specific variants: wet lab, social science, theory-only
+- venue checklists for `lab-ops`
+
+Keep each `SKILL.md` short. The `description` decides when a skill fires, and the body is read in full every time it runs.
 
 ## License
 
-MIT
+[MIT](LICENSE) © Aashik Khatri
+
+<p align="center"><sub>If this helps your research, a ⭐ helps others find it.</sub></p>
