@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-  <img alt="Skills" src="https://img.shields.io/badge/skills-17-8b5cf6">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-22-8b5cf6">
   <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <img alt="Plain markdown" src="https://img.shields.io/badge/memory-plain%20markdown-22c55e">
   <a href="https://github.com/iamgroot400/research-skill/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/iamgroot400/research-skill?style=social"></a>
@@ -16,6 +16,7 @@
   <a href="#install">Install</a> ·
   <a href="#the-lab">The lab</a> ·
   <a href="#two-research-modes">Modes</a> ·
+  <a href="#for-first-time-researchers">First paper</a> ·
   <a href="#co-scientist-loop">Co-scientist loop</a> ·
   <a href="#quick-start">Quick start</a> ·
   <a href="#how-it-works">How it works</a> ·
@@ -63,6 +64,11 @@ Most AI coding setups are tuned for **shipping products**: defensive code, exhau
 | 📋 **`experiment-protocol`** | Controls, power, analysis plan and pre-committed decision rules | *"Write the protocol for H1"* |
 | 📚 **`literature-review`** | Claim-to-source table; only cites papers it actually opened | *"What is known about X?"* |
 | 🔁 **`meta-review`** | Finds recurring problems across the notebook, feeds back to roles | *"What keeps going wrong?"* |
+| 🌱 **`first-paper`** | Mentor for a first paper: scoping, timeline, mentor plan | *"I'm an undergrad, where do I start?"* |
+| 🛤️ **`publish-path`** | Finds and vets venues, runs the readiness checklist | *"Where can I publish this?"* |
+| ➗ **`math-check`** | Dimensional, limiting-case and numeric checks of derivations | *"Check my derivation"* |
+| 📊 **`stats-review`** | Method fit, power, multiple comparisons, simulation checks | *"Is this analysis valid?"* |
+| ✍️ **`paper-coach`** | Coaches your writing and reviews drafts, never writes them | *"Review my introduction"* |
 
 ## Two research modes
 
@@ -73,6 +79,18 @@ You declare the mode **once**, during `lab-setup`. It is saved in `lab/charter.m
 </p>
 
 Switching modes is a logged decision in `lab/decisions.md`, so a project can start in synthesis (map the field) and move to discovery (attack the gap).
+
+## For first-time researchers
+
+Built for students doing their first research project, such as an undergraduate in physics, statistics or math aiming for a first paper. Choose `beginner` at `lab-setup` and every role changes how it works:
+
+- **It teaches instead of taking over.** Roles explain the why, give a hint before an answer, and leave the key step (the derivation, the analysis choice, the interpretation) to you.
+- **It never writes your paper.** `paper-coach` gives structure, asks questions and critiques *your* drafts. Prose, results and conclusions stay yours.
+- **It checks your work independently.** `math-check` tests derivations with units, limiting cases and numeric spot checks. `stats-review` checks method fit, power and multiple comparisons, and validates methods on simulated data with a known answer.
+- **It keeps you honest and realistic.** `first-paper` scopes a project you can finish and sets a timeline with a go/no-go point. `publish-path` finds legitimate venues, screens for predatory ones, and checks authorship and AI-disclosure rules.
+- **It pushes you toward a human mentor.** A faculty member or senior student should review the work before anything is shared. Publishing a first paper in the first year is possible but not typical, and a mentor is the biggest factor.
+
+Start with: *"Set up the lab, beginner, then plan my first paper."*
 
 ## Co-scientist loop
 
@@ -185,6 +203,7 @@ research-skill/
 │   ├── qa-check/  lab-debate/  lab-ops/  lab-comms/
 │   ├── research-plan/  hypothesis-tournament/  reflect/  evolve/
 │   ├── experiment-protocol/  literature-review/  meta-review/
+│   ├── first-paper/  publish-path/  math-check/  stats-review/  paper-coach/
 │   └── research-code/
 └── assets/             README images
 ```

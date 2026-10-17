@@ -7,6 +7,8 @@ _Last updated: YYYY-MM-DD. Only the human changes this file. Agents propose edit
      discovery = novel hypotheses, POC code, experiments.
      Change only by logging a decision in decisions.md. -->
 
+**Experience level:** beginner | experienced
+
 ## Working title
 
 ## Core question

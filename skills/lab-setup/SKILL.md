@@ -14,6 +14,7 @@ The `lab/` folder is the lab's shared memory. Every role (PI, grad student, inte
    - **Research mode (required, cannot be skipped):**
      - `synthesis`: literature reviews and synthesis of existing knowledge. No new science is invented. QA polices hallucinations and checks that every claim is tied to a source.
      - `discovery`: novel research, unsolved problems, creative hypotheses. lab-engineer builds POCs. QA polices theory-code alignment (A-/E-tags) and challenges experimental assumptions.
+   - **Experience level (required):** `beginner` (first research project: roles explain, ask and coach) or `experienced` (roles act and report). Default to `beginner` if unsure.
    - working title, the core research question, 1-3 hypotheses (each with what would falsify it), target venue + deadline. These may be "skip": leave a `TODO` in their place.
 
    If the mode is missing or unclear, ask again. Do not create files until it is set.
@@ -49,6 +50,17 @@ The `lab/` folder is the lab's shared memory. Every role (PI, grad student, inte
 ## Research mode (shared by all roles)
 
 `lab/charter.md` holds a line `**Research mode:** synthesis | discovery`. Every role reads it first and follows its own skill's mode rules. Only the human changes the mode, and each change is logged as a D-entry in `decisions.md`. A project can move from synthesis (map the field) to discovery (attack the gap).
+
+## Experience level (shared by all roles)
+
+`lab/charter.md` holds `**Experience level:** beginner | experienced`. When it is `beginner`, every role:
+- explains the *why* in a sentence or two, in plain language, and defines terms the first time they appear
+- offers a hint or a question before an answer, and lets the student do the key step (derivation, analysis choice, interpretation)
+- never writes paper prose, results or conclusions. Writing goes through **paper-coach**
+- keeps its output short and ends with one small next step
+- reminds the student to get a human mentor to review before anything is shared or submitted
+
+For a first paper, start with **first-paper**.
 
 ## ID conventions (shared by all roles)
 

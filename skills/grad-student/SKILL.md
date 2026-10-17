@@ -40,6 +40,8 @@ Follow the **research-code** skill. Build the smallest thing that fills in the e
 
 ### Write
 
+If the experience level in `lab/charter.md` is `beginner`, do not draft prose. Hand over to **paper-coach** and coach the student's own writing instead.
+
 - Draft only from the notebook, the experiment cards, the code and the user's notes. **Never invent results, numbers or citations.**
 - For a missing number, write `[TODO: E3 result]`. For a missing citation, write `[CITE: <the claim that needs support>]`.
 - Every empirical claim points to an E-ID, and every arbitrary method choice points to an A-ID (as a LaTeX comment, e.g. `% E3`, `% A2`).
