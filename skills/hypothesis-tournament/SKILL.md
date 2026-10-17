@@ -19,6 +19,7 @@ lab/hypotheses/
   matches.jsonl    one line per debate: {"a":"C1","b":"C4","winner":"C4","why":"..."}
   ratings.md       latest Elo table from elo.py
   seeds.md         the human's own ideas (optional, human-edited)
+  human-feedback.md  the human's running notes; reflect applies them first
   feedback.md      win/loss patterns and limits, rewritten each round
 ```
 
@@ -38,7 +39,7 @@ lab/hypotheses/
 
 ## Output to the human
 
-Show a short research overview (what was explored and what the ranking shows), then the top 3-5 as a table: ID, one-line claim, Elo, strongest objection, and the **cheapest experiment that could kill it**. Then stop. The human chooses what moves forward. A chosen candidate becomes an `H` entry in the charter and an experiment card, both with the human's sign-off.
+Show a short research overview (what was explored and what the ranking shows), then the top 3-5 as a table: ID, one-line claim, Elo, strongest objection, and the **cheapest experiment that could kill it**. Ask for feedback on the list and save it to `human-feedback.md` for the next round. Then stop. The human chooses what moves forward. A chosen candidate becomes an `H` entry in the charter and an experiment card, both with the human's sign-off.
 
 ## Rules
 

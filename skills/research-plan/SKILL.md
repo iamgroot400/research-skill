@@ -22,6 +22,7 @@ Parse the goal once, up front, so every later role works toward the same target.
 - **Known prior work:** 3-5 items, each marked verified or unverified
 - **Pipeline:** the ordered roles and what each produces (see below)
 - **Budget:** wall-clock, compute, human review hours; and a stop rule ("stop if no candidate beats baseline after N rounds")
+- **Delegation:** which steps can run in parallel as subagents (e.g. one per debate or per paper), and the maximum number at once
 - **Checkpoints:** where the human reviews before the next stage
 ```
 
