@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-  <img alt="Skills" src="https://img.shields.io/badge/skills-24-8b5cf6">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-25-8b5cf6">
   <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <a href="https://github.com/iamgroot400/research-skill/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/iamgroot400/research-skill?style=social"></a>
 </p>
@@ -34,6 +34,7 @@ So this repo gives Claude a set of lab roles (a PI, a grad student, an intern, a
 | Skill | What it does | Try saying |
 |---|---|---|
 | `lab` | The front door: sets up the lab if there isn't one, otherwise gives a briefing and a menu | "Open the lab" |
+| `next` | The mentor: reads your notebook and says the one thing to do next | "What next?" or "I'm stuck" |
 | `lab-setup` | Creates the shared `lab/` notebook for your project | "Set up the lab for my project on X" |
 | `pi` | Keeps the big picture: daily briefing, drift checks, what to do next | "PI, daily briefing" |
 | `grad-student` | Proposes ideas, designs experiments, builds quick prototypes | "Propose directions for H1" |
