@@ -1,0 +1,8 @@
+{
+  "name": "research-lab",
+  "version": "0.1.0",
+  "description": "An agents research lab for Claude: PI, grad student, intern, lab engineer, QA, ops and comms roles that share a plain-markdown lab notebook, keep assumptions explicit, record disagreement, and keep theory, code and results aligned.",
+  "author": { "name": "Aashik Khatri" },
+  "license": "MIT",
+  "keywords": ["research", "academia", "science", "papers", "experiments", "reproducibility", "agents"]
+}

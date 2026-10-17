@@ -1,0 +1,11 @@
+{
+  "name": "research-skill",
+  "owner": { "name": "Aashik Khatri" },
+  "plugins": [
+    {
+      "name": "research-lab",
+      "source": "./",
+      "description": "Agents research lab: PI, grad student, intern, lab engineer, QA, debate, ops and comms skills sharing one lab notebook."
+    }
+  ]
+}
