@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-  <img alt="Skills" src="https://img.shields.io/badge/skills-23-8b5cf6">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-24-8b5cf6">
   <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
   <a href="https://github.com/iamgroot400/research-skill/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/iamgroot400/research-skill?style=social"></a>
 </p>
@@ -33,6 +33,7 @@ So this repo gives Claude a set of lab roles (a PI, a grad student, an intern, a
 
 | Skill | What it does | Try saying |
 |---|---|---|
+| `lab` | The front door: sets up the lab if there isn't one, otherwise gives a briefing and a menu | "Open the lab" |
 | `lab-setup` | Creates the shared `lab/` notebook for your project | "Set up the lab for my project on X" |
 | `pi` | Keeps the big picture: daily briefing, drift checks, what to do next | "PI, daily briefing" |
 | `grad-student` | Proposes ideas, designs experiments, builds quick prototypes | "Propose directions for H1" |
@@ -84,7 +85,9 @@ So this repo gives Claude a set of lab roles (a PI, a grad student, an intern, a
 
 Open Claude Code in your research folder and say:
 
-> Set up the lab. Beginner, discovery mode, coach writing. My topic is *your topic*.
+> Use the lab-setup skill. Beginner, discovery mode, coach writing. My topic is *your topic*.
+
+Replace *your topic* with a real one, or leave it out and the skill will draft a topic from your project files and ask you to confirm. Saying just "open the lab" also works and routes to the right skill.
 
 It will ask a few questions once, create the notebook, and from then on every role reads it first. A good first week looks like this:
 
@@ -95,7 +98,7 @@ It will ask a few questions once, create the notebook, and from then on every ro
 5. Do the work. Use `math-check` and `stats-review` as you go.
 6. `qa-check`, then `paper-coach` or `paper-draft`, then `publish-path`.
 
-Want an audit of work you've already done? Run `lab-setup` in that folder, then ask for `qa-check`, `math-check`, `stats-review`, `lab-engineer` and finally `meta-review`.
+Want an audit of work you've already done? Run `lab-setup` in that folder, then ask for `qa-check`, `math-check`, `stats-review`, `lab-engineer` and finally `meta-review`. New skills load when a session starts, so open a fresh session after installing.
 
 <p align="center">
   <img src="assets/session.svg" alt="Illustrative example of a research lab session" width="90%">
