@@ -15,6 +15,8 @@ Pick the moves that fit the critique:
 - **Simplify:** remove a component. Keep the claim if the simpler version still works.
 - **Combine:** merge the strongest part of two candidates. Name which part came from where.
 - **Reframe:** state the same question from a different angle (a different level of abstraction, an analogy from another field, an inverse question).
+- **Inspiration:** borrow a mechanism from a different candidate or another field, and say what was borrowed and why it should transfer.
+- **Extend:** push the idea into the next question it opens (a new setting, a harder case, a prediction it makes that nobody has tested).
 - **Sharpen:** turn a vague claim into one with a number, a direction, or a named condition so it can be falsified.
 
 ## Output
