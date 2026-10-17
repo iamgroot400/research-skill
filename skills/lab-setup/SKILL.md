@@ -15,6 +15,7 @@ The `lab/` folder is the lab's shared memory. Every role (PI, grad student, inte
      - `synthesis`: literature reviews and synthesis of existing knowledge. No new science is invented. QA polices hallucinations and checks that every claim is tied to a source.
      - `discovery`: novel research, unsolved problems, creative hypotheses. lab-engineer builds POCs. QA polices theory-code alignment (A-/E-tags) and challenges experimental assumptions.
    - **Experience level (required):** `beginner` (first research project: roles explain, ask and coach) or `experienced` (roles act and report). Default to `beginner` if unsure.
+   - **Writing mode (required):** `coach` (you write the paper, the agents critique and teach) or `draft` (agents write a full draft from the lab's recorded evidence, and you review it and own it). Default to `coach` if unsure.
    - working title, the core research question, 1-3 hypotheses (each with what would falsify it), target venue + deadline. These may be "skip": leave a `TODO` in their place.
 
    If the mode is missing or unclear, ask again. Do not create files until it is set.
@@ -56,11 +57,19 @@ The `lab/` folder is the lab's shared memory. Every role (PI, grad student, inte
 `lab/charter.md` holds `**Experience level:** beginner | experienced`. When it is `beginner`, every role:
 - explains the *why* in a sentence or two, in plain language, and defines terms the first time they appear
 - offers a hint or a question before an answer, and lets the student do the key step (derivation, analysis choice, interpretation)
-- never writes paper prose, results or conclusions. Writing goes through **paper-coach**
+- follows the Writing mode below for any paper prose
 - keeps its output short and ends with one small next step
 - reminds the student to get a human mentor to review before anything is shared or submitted
 
 For a first paper, start with **first-paper**.
+
+## Writing mode (shared by all roles)
+
+`lab/charter.md` holds `**Writing mode:** coach | draft`.
+- **coach:** the human writes. Writing help goes through **paper-coach**, which critiques and teaches but does not draft prose.
+- **draft:** agents write the paper through **paper-draft**, only from recorded evidence, with tags, verified citations and an AI-use disclosure. The human reviews, verifies and owns the result.
+
+In both modes no role invents results, numbers or citations. Only the human changes the mode, and the change is logged in `decisions.md`.
 
 ## ID conventions (shared by all roles)
 

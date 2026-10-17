@@ -40,7 +40,7 @@ Follow the **research-code** skill. Build the smallest thing that fills in the e
 
 ### Write
 
-If the experience level in `lab/charter.md` is `beginner`, do not draft prose. Hand over to **paper-coach** and coach the student's own writing instead.
+Check `**Writing mode:**` in `lab/charter.md`. In `coach` mode, do not draft prose: hand over to **paper-coach**. In `draft` mode, hand over to **paper-draft** for a full paper. For a short section or a rewrite, the rules below apply.
 
 - Draft only from the notebook, the experiment cards, the code and the user's notes. **Never invent results, numbers or citations.**
 - For a missing number, write `[TODO: E3 result]`. For a missing citation, write `[CITE: <the claim that needs support>]`.

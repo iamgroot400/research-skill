@@ -9,6 +9,8 @@ _Last updated: YYYY-MM-DD. Only the human changes this file. Agents propose edit
 
 **Experience level:** beginner | experienced
 
+**Writing mode:** coach | draft
+
 ## Working title
 
 ## Core question

@@ -4,222 +4,206 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-  <img alt="Skills" src="https://img.shields.io/badge/skills-22-8b5cf6">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-23-8b5cf6">
   <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude%20Code-plugin-d97757">
-  <img alt="Plain markdown" src="https://img.shields.io/badge/memory-plain%20markdown-22c55e">
   <a href="https://github.com/iamgroot400/research-skill/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/iamgroot400/research-skill?style=social"></a>
 </p>
 
-<h3 align="center">Turn Claude into a small research lab, not a product engineer.</h3>
+# Research Skill
 
-<p align="center">
-  <a href="#install">Install</a> ·
-  <a href="#the-lab">The lab</a> ·
-  <a href="#two-research-modes">Modes</a> ·
-  <a href="#for-first-time-researchers">First paper</a> ·
-  <a href="#co-scientist-loop">Co-scientist loop</a> ·
-  <a href="#quick-start">Quick start</a> ·
-  <a href="#how-it-works">How it works</a> ·
-  <a href="#contributing">Contributing</a>
-</p>
+A set of skills that make Claude behave more like a small research group than a software engineer.
 
----
+I'm an undergrad (physics, stats and math) trying to get a first paper out, and I kept running into the same problem: AI coding tools are built to ship products. They write long, defensive code, bury your assumptions, and agree with everything you say. Research needs the opposite. You want short code you can check against the paper, assumptions written down where you can find them, and someone willing to tell you your idea has a hole in it.
 
-## Why this exists
+So this repo gives Claude a set of lab roles (a PI, a grad student, an intern, a QA checker and so on) that share one folder of plain markdown notes. Nothing fancy, no database, no service to run. If you can read a text file, you can see exactly what the agents know.
 
-Most AI coding setups are tuned for **shipping products**: defensive code, exhaustive edge cases, scale. Research is a different job. The setup has to be precise, but the code does not need to be production-grade. What matters is:
+> **Status:** early and still changing. The skill files are validated, but I haven't run them through many real projects yet. If something misfires, please open an issue.
 
-| Research needs | Typical AI coding gives you |
-|---|---|
-| Code you can check against the paper | Long, convoluted implementations |
-| Assumptions written down and traceable | Assumptions buried in edge-case handling |
-| Agents that can **disagree** | An assistant that agrees with you |
-| Theory, code and results that stay aligned | Code that drifts from the idea |
-| Fast iteration | Heavy scaffolding up front |
+## Contents
 
-**Research Skill** gives Claude the roles of a real lab. They share one plain-markdown notebook, so context and intent survive between sessions and between roles.
+[What's in the box](#whats-in-the-box) · [Install](#install) · [Try it](#try-it) · [Three switches you set once](#three-switches-you-set-once) · [How the notebook works](#how-the-notebook-works) · [The idea-ranking loop](#the-idea-ranking-loop) · [Honest limits](#honest-limits) · [Contributing](#contributing)
 
-## The lab
+## What's in the box
 
 <p align="center">
   <img src="assets/lab-diagram.svg" alt="Every role reads and writes one shared lab notebook" width="90%">
 </p>
 
-| Skill | Role | Try asking |
-|-------|------|------------|
-| 🧰 **`lab-setup`** | Opens the lab | *"Set up the lab for my project on X"* |
-| 🧭 **`pi`** | Lab head and your right hand | *"Daily briefing"* · *"Are we drifting?"* · *"Funding ideas"* |
-| 🎓 **`grad-student`** | Ideas, experiments, POCs, paper drafts | *"Propose directions"* · *"Design an experiment for H2"* · *"Draft the method section"* |
-| 🧑‍💻 **`intern`** | Data prep, EDA, scouting, side experiments | *"Clean this dataset"* · *"Quick EDA"* · *"Find datasets on …"* |
-| 🛠️ **`lab-engineer`** | Code review, POC → reproducible release | *"Review this for bugs that change results"* · *"Prep the code release"* |
-| 🔍 **`qa-check`** | Theory ↔ code ↔ results ↔ references | *"Fact-check the draft before submission"* |
-| ⚖️ **`lab-debate`** | Structured disagreement and red-teaming | *"Argue against method X"* · *"What would reviewer 2 say?"* |
-| 🗂️ **`lab-ops`** | Deadlines, checklists, travel, paperwork | *"Submission checklist for …"* · *"Draft a visa letter"* |
-| 📣 **`lab-comms`** | Announcements, newsletters, talks, venues | *"Announcement thread for the paper"* · *"Where can I present this?"* |
-| 📐 **`research-code`** | House coding style, applied by every role that writes code | runs automatically |
-| 🗺️ **`research-plan`** | Supervisor: turns a goal into success criteria, pipeline and budget | *"Plan this goal"* |
-| 🏆 **`hypothesis-tournament`** | Generate, critique, dedupe, rank (Elo) and evolve hypotheses | *"Find the best hypothesis for …"* |
-| 🧐 **`reflect`** | Reviews one idea for novelty, plausibility and testability | *"Has this been done?"* · *"Poke holes in this"* |
-| 🧬 **`evolve`** | Repairs, simplifies, combines or reframes a strong idea | *"Make this stronger"* |
-| 📋 **`experiment-protocol`** | Controls, power, analysis plan and pre-committed decision rules | *"Write the protocol for H1"* |
-| 📚 **`literature-review`** | Claim-to-source table; only cites papers it actually opened | *"What is known about X?"* |
-| 🔁 **`meta-review`** | Finds recurring problems across the notebook, feeds back to roles | *"What keeps going wrong?"* |
-| 🌱 **`first-paper`** | Mentor for a first paper: scoping, timeline, mentor plan | *"I'm an undergrad, where do I start?"* |
-| 🛤️ **`publish-path`** | Finds and vets venues, runs the readiness checklist | *"Where can I publish this?"* |
-| ➗ **`math-check`** | Dimensional, limiting-case and numeric checks of derivations | *"Check my derivation"* |
-| 📊 **`stats-review`** | Method fit, power, multiple comparisons, simulation checks | *"Is this analysis valid?"* |
-| ✍️ **`paper-coach`** | Coaches your writing and reviews drafts, never writes them | *"Review my introduction"* |
+**The lab roles**
 
-## Two research modes
+| Skill | What it does | Try saying |
+|---|---|---|
+| `lab-setup` | Creates the shared `lab/` notebook for your project | "Set up the lab for my project on X" |
+| `pi` | Keeps the big picture: daily briefing, drift checks, what to do next | "PI, daily briefing" |
+| `grad-student` | Proposes ideas, designs experiments, builds quick prototypes | "Propose directions for H1" |
+| `intern` | Cleans data, does quick exploratory analysis, finds papers and datasets | "Quick EDA on this dataset" |
+| `lab-engineer` | Reviews code for bugs that change results, makes it reproducible | "Review E1 for bugs" |
+| `qa-check` | Checks that theory, code, numbers and references agree | "Fact-check my draft" |
+| `lab-debate` | Argues against your idea on purpose, then records the disagreement | "Red-team this approach" |
+| `lab-ops` | Deadlines, submission checklists, travel and paperwork drafts | "Submission checklist for <venue>" |
+| `lab-comms` | Announcement threads, newsletters, talk and poster outlines | "Announcement thread for the paper" |
+| `research-code` | The coding style the roles follow: short, readable, assumptions tagged | applied automatically |
 
-You declare the mode **once**, during `lab-setup`. It is saved in `lab/charter.md`, and every role adapts to it.
+**For finding and testing ideas** (inspired by Google's [AI co-scientist](https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/) post)
 
-<p align="center">
-  <img src="assets/modes.svg" alt="Synthesis mode versus discovery mode" width="90%">
-</p>
+| Skill | What it does |
+|---|---|
+| `research-plan` | Turns a goal into success criteria, a pipeline and a budget |
+| `literature-review` | Reviews papers and only cites ones it actually opened |
+| `hypothesis-tournament` | Generates ideas, critiques them, ranks them head to head |
+| `reflect` | Critiques a single idea: novelty, plausibility, testability |
+| `evolve` | Improves a promising idea by repairing, simplifying or combining |
+| `experiment-protocol` | Controls, sample size, analysis plan and decision rules, written before you run anything |
+| `meta-review` | Looks across all your notes for repeated mistakes and gives each role feedback |
 
-Switching modes is a logged decision in `lab/decisions.md`, so a project can start in synthesis (map the field) and move to discovery (attack the gap).
+**For a first paper**
 
-## For first-time researchers
-
-Built for students doing their first research project, such as an undergraduate in physics, statistics or math aiming for a first paper. Choose `beginner` at `lab-setup` and every role changes how it works:
-
-- **It teaches instead of taking over.** Roles explain the why, give a hint before an answer, and leave the key step (the derivation, the analysis choice, the interpretation) to you.
-- **It never writes your paper.** `paper-coach` gives structure, asks questions and critiques *your* drafts. Prose, results and conclusions stay yours.
-- **It checks your work independently.** `math-check` tests derivations with units, limiting cases and numeric spot checks. `stats-review` checks method fit, power and multiple comparisons, and validates methods on simulated data with a known answer.
-- **It keeps you honest and realistic.** `first-paper` scopes a project you can finish and sets a timeline with a go/no-go point. `publish-path` finds legitimate venues, screens for predatory ones, and checks authorship and AI-disclosure rules.
-- **It pushes you toward a human mentor.** A faculty member or senior student should review the work before anything is shared. Publishing a first paper in the first year is possible but not typical, and a mentor is the biggest factor.
-
-Start with: *"Set up the lab, beginner, then plan my first paper."*
-
-## Co-scientist loop
-
-The newer skills follow the generate, debate and evolve design that Google Research described in its [AI co-scientist](https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/) post. A supervisor plans, candidate hypotheses are generated, critiqued, de-duplicated and ranked in pairwise debates, and the best are evolved and re-ranked. The ranking uses Elo ratings, computed by a small script ([`elo.py`](skills/hypothesis-tournament/elo.py)) instead of by the model.
-
-<p align="center">
-  <img src="assets/coscientist-loop.svg" alt="Generate, reflect, rank and evolve hypotheses, then protocol, run, QA and meta-review" width="90%">
-</p>
-
-> **Independent project.** This is an open-source reimplementation of the idea as prompts and files, inspired by that post. It is not Google's system, it is not affiliated with Google, and it does not use Gemini. Elo here measures a model's preference among generated ideas, **not truth**, so only experiments settle a hypothesis.
-
-## See it in action
-
-<p align="center">
-  <img src="assets/session.svg" alt="Illustrative example of a research lab session" width="90%">
-</p>
-
-> The picture above is an illustrative mock-up of the flow, not a recording of a real run.
+| Skill | What it does |
+|---|---|
+| `first-paper` | Picks a project you can actually finish, sets a realistic timeline, nudges you toward a mentor |
+| `math-check` | Checks derivations: units, limiting cases, numeric spot checks |
+| `stats-review` | Checks your method fits, your sample is big enough, and your claims hold up |
+| `publish-path` | Finds legitimate places to publish and screens out predatory ones |
+| `paper-coach` | Coaches your writing and reviews your drafts without writing them |
+| `paper-draft` | Writes a full draft from your recorded evidence (only when you choose that) |
 
 ## Install
 
-### Claude Code (plugin, recommended)
+**Claude Code, as a plugin** (updates come with `/plugin marketplace update research-skill`):
 
 ```text
 /plugin marketplace add iamgroot400/research-skill
 /plugin install research-lab@research-skill
 ```
 
-### Claude Code (copy the skills)
+**Claude Code, copy the folders.** Put the folders from [`skills/`](skills) in `~/.claude/skills/` for all projects, or in `<project>/.claude/skills/` for one. Don't do this and the plugin install both, or you'll get every skill twice.
 
-Copy the folders in [`skills/`](skills) to `~/.claude/skills/` (all projects) or `<project>/.claude/skills/` (one project).
+**Claude.ai and Claude desktop.** Zip each folder in `skills/` on its own (the folder with its `SKILL.md` inside) and upload it under Settings, then Capabilities, then Skills.
 
-### Claude.ai and Claude desktop
+## Try it
 
-Zip each folder in `skills/` on its own, with the folder and its `SKILL.md` inside the zip, and upload it under **Settings → Capabilities → Skills**.
+Open Claude Code in your research folder and say:
 
-## Quick start
+> Set up the lab. Beginner, discovery mode, coach writing. My topic is *your topic*.
 
-1. **Open the lab.** Say *"Set up the lab for my project on …"*. Pick a mode and answer a few questions once.
-2. **Get your bearings.** *"PI, daily briefing"* gives status, concerns and the top 3 tasks, each with an owner.
-3. **Explore.** *"grad-student: propose directions for H1"* returns ranked ideas, each with the cheapest experiment that could kill it.
-4. **Stress-test.** *"Red-team direction 2"* has `lab-debate` argue it out, then logs the decision and its dissent.
-5. **Build.** *"grad-student: design and POC E1"* writes the prediction first, then minimal code tagged with assumptions.
-6. **Check.** *"lab-engineer: review E1"* looks for bugs that change results.
-7. **Ship.** Before submitting: `qa-check` → `lab-ops` checklist → `lab-comms` announcement pack.
+It will ask a few questions once, create the notebook, and from then on every role reads it first. A good first week looks like this:
 
-## How it works
+1. `first-paper`: pick the project and set the timeline.
+2. `literature-review`: find out what's already known and where the gaps are.
+3. `hypothesis-tournament`: rank candidate ideas, then you choose.
+4. `experiment-protocol`: write down what you'll test and what would count as a failure, before you run it.
+5. Do the work. Use `math-check` and `stats-review` as you go.
+6. `qa-check`, then `paper-coach` or `paper-draft`, then `publish-path`.
 
-### The lab notebook
+Want an audit of work you've already done? Run `lab-setup` in that folder, then ask for `qa-check`, `math-check`, `stats-review`, `lab-engineer` and finally `meta-review`.
+
+<p align="center">
+  <img src="assets/session.svg" alt="Illustrative example of a research lab session" width="90%">
+</p>
+
+<sub>That picture is a mock-up of what a session looks like, not a recording of a real run.</sub>
+
+## Three switches you set once
+
+`lab-setup` asks for these and saves them in `lab/charter.md`. Every role reads them.
+
+**Research mode**
+
+<p align="center">
+  <img src="assets/modes.svg" alt="Synthesis mode versus discovery mode" width="90%">
+</p>
+
+- *Synthesis* is for reviewing what's known. `qa-check` hunts for claims without a source and nobody invents new science.
+- *Discovery* is for new questions. `lab-engineer` builds prototypes, and `qa-check` makes sure equations match code and assumptions are tested.
+
+**Experience level.** *Beginner* makes every role explain the why, give a hint before an answer, and keep things short. *Experienced* means act and report.
+
+**Writing mode.** *Coach*: you write, the agents critique. *Draft*: `paper-draft` writes a full draft, but only from what your experiments actually produced. It leaves `[TODO]` for missing numbers and `[CITE]` for missing sources instead of guessing, and you review it and own it. Either way, nobody makes up results or citations.
+
+Changing a switch later is a logged decision, so you can see when and why it happened.
+
+## How the notebook works
 
 ```text
 lab/
-├── charter.md          research mode, question, hypotheses (H1..), scope. Human-owned.
-├── assumptions.md      assumption register (A1..)
-├── decisions.md        decision log with recorded dissent (D1..)
-├── deadlines.md        dated deadlines and internal milestones
-├── experiments/        experiment cards (E1..), prediction written BEFORE running
-├── notebook/           daily log, every role appends
-└── qa/  comms/  data/  reports from qa-check, lab-comms and intern
-results/E*/             experiment outputs, never overwritten
+├── charter.md          mode, question, hypotheses, scope (you own this)
+├── assumptions.md      every assumption, numbered A1, A2, ...
+├── decisions.md        decisions, with the strongest objection kept on record
+├── deadlines.md        dates, with time zones
+├── experiments/        one card per experiment, E1, E2, ...
+├── notebook/           a daily log every role adds to
+└── qa/ comms/ data/    reports from the checking and writing roles
+results/E*/             outputs, never overwritten
 ```
 
-### Core ideas
+A few habits it builds in:
 
-- 🧠 **Shared memory, not shared chat.** Every role reads `lab/` before acting and appends to it after.
-- 🏷️ **Assumptions are first-class.** Each gets an ID (`A3`) in `assumptions.md` and a `# ASSUME A3:` tag in the code. `qa-check` verifies the two stay in sync.
-- 🔮 **Predictions before results.** An experiment card records what would falsify the hypothesis *before* any code runs. This blocks quietly rewriting the hypothesis after the fact.
-- 🗣️ **Dissent is recorded.** Decisions keep their strongest unrefuted counterargument and a "revisit if" trigger.
-- 📐 **Research code is not production code.** Linear scripts, paper-shaped names, `assert` over `try/except`, no speculative abstraction. The few cases where defensive code is allowed are spelled out in [`research-code`](skills/research-code/SKILL.md).
-- 🙋 **Agents draft, humans decide.** No role submits, posts, pays or edits the charter on its own.
+- **Assumptions get numbers.** In code you write `# ASSUME A3: features are linear`, and the same assumption lives in `assumptions.md`. `qa-check` flags it when the two drift apart.
+- **Predictions come first.** Each experiment card says what result would count as failure *before* you run it, which stops you quietly rewriting the hypothesis afterwards.
+- **Disagreement is kept.** When you decide something, the best argument against it is saved along with a "revisit if" trigger.
+- **Research code isn't product code.** Short scripts, names from the paper, `assert` instead of `try/except`, no features nobody asked for.
+- **You decide.** No role submits, posts, pays, or changes your charter on its own.
 
 <details>
-<summary><b>Example: an assumption tag in code</b></summary>
+<summary>Example: an assumption tag in code</summary>
 
 ```python
-SEED = 0  # set every seed at the top; outputs go to results/E1/<timestamp>/
+SEED = 0  # every seed is set at the top; outputs go to results/E1/<timestamp>/
 
 # ASSUME A2: features are linearly decodable from layer activations
 probe = LogisticRegression(max_iter=1000).fit(train_x, train_y)
 
-assert train_x.shape[0] == train_y.shape[0]   # fail loud, not safe
+assert train_x.shape[0] == train_y.shape[0]   # fail loudly, not quietly
 print(f"layer {layer}: acc={probe.score(test_x, test_y):.3f}")  # Eq. 4
 ```
 
 </details>
 
 <details>
-<summary><b>Example: an experiment card</b></summary>
+<summary>Example: an experiment card</summary>
 
 ```markdown
 # E1 - Cross-layer probe transfer
 - Status: planned
 - Tests hypothesis: H1
-- Prediction (written BEFORE running): If H1 holds, a probe trained on layer 6
-  keeps >80% of its accuracy on layer 8. Below 50% means H1 is in trouble.
+- Prediction (written BEFORE running): if H1 holds, a probe trained on layer 6
+  keeps more than 80% of its accuracy on layer 8. Below 50% means H1 is in trouble.
 - Assumptions relied on: A2
 - Results: results/E1/
 ```
 
 </details>
 
+## The idea-ranking loop
+
+The newer skills follow the shape of Google Research's [AI co-scientist](https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/): plan, generate ideas, critique them, remove duplicates, rank them in head-to-head debates, improve the winners, repeat. The ranking uses Elo ratings, and a small script ([`elo.py`](skills/hypothesis-tournament/elo.py)) does the arithmetic so the model doesn't have to.
+
+<p align="center">
+  <img src="assets/coscientist-loop.svg" alt="Generate, reflect, rank and evolve hypotheses, then protocol, run, QA and meta-review" width="90%">
+</p>
+
+This is my own open-source version of the idea, written as prompts and files. It isn't Google's system, isn't affiliated with Google, and doesn't use Gemini.
+
+## Honest limits
+
+- **Elo here is a model's opinion, not evidence.** It ranks ideas by how convincing the debates were. Only experiments tell you if an idea is true.
+- **The agents can be wrong.** `qa-check`, `math-check` and `stats-review` catch a lot, but they are not a replacement for a human mentor reading your work. Get one.
+- **Drafts need your eyes.** If you use `paper-draft`, you are responsible for every claim in the paper. Check your venue's rules on AI-assisted writing and disclose what you used. `paper-draft` writes the disclosure note for you to review.
+- **A first paper in a first year is possible but unusual.** `first-paper` helps you pick something small enough to finish. That matters more than any tool here.
+
 ## Repository layout
 
 ```text
 research-skill/
-├── .claude-plugin/     plugin.json + marketplace.json
-├── skills/
-│   ├── lab-setup/      scaffold + templates
-│   ├── pi/  grad-student/  intern/  lab-engineer/
-│   ├── qa-check/  lab-debate/  lab-ops/  lab-comms/
-│   ├── research-plan/  hypothesis-tournament/  reflect/  evolve/
-│   ├── experiment-protocol/  literature-review/  meta-review/
-│   ├── first-paper/  publish-path/  math-check/  stats-review/  paper-coach/
-│   └── research-code/
-└── assets/             README images
+├── .claude-plugin/     plugin.json and marketplace.json
+├── skills/             one folder per skill, each with a SKILL.md
+└── assets/             the images used in this README
 ```
 
 ## Contributing
 
-PRs are welcome, especially for:
-
-- new roles, such as a statistician or an ethics reviewer
-- field-specific variants: wet lab, social science, theory-only
-- venue checklists for `lab-ops`
-
-Keep each `SKILL.md` short. The `description` decides when a skill fires, and the body is read in full every time it runs.
+Pull requests are welcome, especially new roles (a statistician, an ethics reviewer), variants for other fields (wet lab, social science, pure theory), and venue checklists for `lab-ops`. Please keep each `SKILL.md` short. The `description` line decides when a skill kicks in, and the body is read in full every time.
 
 ## License
 
-[MIT](LICENSE) © Aashik Khatri
-
-<p align="center"><sub>If this helps your research, a ⭐ helps others find it.</sub></p>
+[MIT](LICENSE), Aashik Khatri.
